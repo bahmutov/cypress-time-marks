@@ -30,6 +30,22 @@ import 'cypress-time-marks'
 
 This should give you two new custom commands `cy.timeMark(name)` and `cy.timeSince(name)`.
 
+## Options
+
+### labels
+
+You can log a label when using `cy.timeSince(name, label)`
+
+```js
+cy.timeMark('start')
+  .wait(1500)
+  .timeSince('start', 'initial wait')
+  .wait(500)
+  .timeSince('start', 'final load')
+```
+
+![Time marks with labels](./images/labels.png)
+
 ## See also
 
 - [cypress-timestamps](https://github.com/bahmutov/cypress-timestamps) plugin

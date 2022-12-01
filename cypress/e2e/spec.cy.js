@@ -27,3 +27,11 @@ it('supports multiple marks', () => {
     .timeSince('a1')
     .timeSince('a2')
 })
+
+it('supports labels', () => {
+  cy.timeMark('start')
+    .wait(1500)
+    .timeSince('start', 'initial wait')
+    .wait(500)
+    .timeSince('start', 'final load')
+})
