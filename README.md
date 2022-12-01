@@ -10,6 +10,26 @@ cy.timeMark('start').wait(1500).timeSince('start').wait(500).timeSince('start')
 
 See [spec.cy.js](./cypress/e2e/spec.cy.js)
 
+## Install
+
+Add this plugin as a dev dependency
+
+```
+# if using NPM
+$ npm i -D cypress-time-marks
+# if using Yarn
+$ yarn add -D cypress-time-marks
+```
+
+Import this plugin from the spec file or from the support file
+
+```js
+// cypress/e2e/spec.cy.js or cypress/support/e2e.js
+import 'cypress-time-marks'
+```
+
+This should give you two new custom commands `cy.timeMark(name)` and `cy.timeSince(name)`.
+
 ## See also
 
 - [cypress-timestamps](https://github.com/bahmutov/cypress-timestamps) plugin
