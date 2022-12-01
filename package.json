@@ -1,6 +1,6 @@
 {
   "name": "cypress-time-marks",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "description": "Custom Cypress commands to measure elapsed time",
   "main": "src/index.js",
   "files": [
@@ -8,7 +8,8 @@
   ],
   "scripts": {
     "test": "cypress run",
-    "badges": "npx -p dependency-version-badge update-badge cypress"
+    "badges": "npx -p dependency-version-badge update-badge cypress",
+    "semantic-release": "semantic-release"
   },
   "keywords": [
     "cypress-plugin"
@@ -17,7 +18,8 @@
   "license": "MIT",
   "devDependencies": {
     "cypress": "^11.2.0",
-    "prettier": "^2.8.0"
+    "prettier": "^2.8.0",
+    "semantic-release": "^19.0.5"
   },
   "dependencies": {
     "format-duration": "^2.0.0"
