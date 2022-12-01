@@ -35,3 +35,12 @@ it('supports labels', () => {
     .wait(500)
     .timeSince('start', 'final load')
 })
+
+it('warns about time limit', () => {
+  cy.timeMark('start')
+    .wait(100)
+    .timeSince('start', 'under time limit', 200)
+    .wait(500)
+    .timeSince('start', 'over time limit', 200)
+    .timeSince('start', 200)
+})

@@ -46,6 +46,21 @@ cy.timeMark('start')
 
 ![Time marks with labels](./images/labels.png)
 
+### time limit warning
+
+You can pass a time limit after the mark name to warn if the elapsed time is longer than the limit. It won't fail the test, but it will change the icon to warn you.
+
+```js
+cy.timeMark('start')
+  .wait(100)
+  .timeSince('start', 'under time limit', 200)
+  .wait(500)
+  .timeSince('start', 'over time limit', 200)
+  .timeSince('start', 200)
+```
+
+![Time limit warnings](./images/time-limit.png)
+
 ## See also
 
 - [cypress-timestamps](https://github.com/bahmutov/cypress-timestamps) plugin

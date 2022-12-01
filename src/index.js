@@ -22,20 +22,42 @@ Cypress.Commands.add(
   },
 )
 
+function formatDurationMs(ms) {
+  if (ms < 1000) {
+    return ms + 'ms'
+  } else {
+    return format(ms, { leading: true })
+  }
+}
+
 // we could take precision as a parameter
 Cypress.Commands.add(
   'timeSince',
   { prevSubject: 'optional' },
-  (subject, name, label) => {
+  (subject, name, label, timeLimit) => {
     if (typeof name !== 'string') {
       throw new Error('Expected a time mark name')
     }
     if (!name) {
       throw new Error('Expected a string time mark name')
     }
+
+    if (typeof label === 'number') {
+      timeLimit = label
+      label = undefined
+    }
+
     if (label) {
       if (typeof label !== 'string') {
         throw new Error('Label should be a string')
+      }
+    }
+    if (typeof timeLimit !== 'undefined') {
+      if (typeof timeLimit !== 'number') {
+        throw new Error('Expected a time limit in milliseconds')
+      }
+      if (timeLimit < 0) {
+        throw new Error(`Expected positive time limit, got ${timeLimit}`)
       }
     }
 
@@ -45,12 +67,24 @@ Cypress.Commands.add(
     }
     const timestamp = new Date()
     const elapsed = timestamp - startedAt
-    const formatted = format(elapsed, { leading: true })
+    const formatted = formatDurationMs(elapsed)
 
     if (label) {
-      cy.log(`🌀 ${formatted} ${label} since **${name}**`)
+      if (timeLimit && elapsed > timeLimit) {
+        cy.log(
+          `🆘 ${formatted} ${label} since **${name}** (above the time limit ${timeLimit}ms)`,
+        )
+      } else {
+        cy.log(`🌀 ${formatted} ${label} since **${name}**`)
+      }
     } else {
-      cy.log(`🌀 ${formatted} since **${name}**`)
+      if (timeLimit && elapsed > timeLimit) {
+        cy.log(
+          `🆘 ${formatted} since **${name}** (above the time limit ${timeLimit}ms)`,
+        )
+      } else {
+        cy.log(`🌀 ${formatted} since **${name}**`)
+      }
     }
 
     // pass the previous subject, if any
