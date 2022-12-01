@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Custom Cypress commands to measure elapsed time",
   "main": "src/index.js",
+  "files": [
+    "src"
+  ],
   "scripts": {
     "test": "cypress run",
     "badges": "npx -p dependency-version-badge update-badge cypress"
