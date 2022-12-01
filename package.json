@@ -1,0 +1,21 @@
+{
+  "name": "cypress-time-marks",
+  "version": "1.0.0",
+  "description": "Custom Cypress commands to measure elapsed time",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "cypress run"
+  },
+  "keywords": [
+    "cypress-plugin"
+  ],
+  "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "^11.2.0",
+    "prettier": "^2.8.0"
+  },
+  "dependencies": {
+    "format-duration": "^2.0.0"
+  }
+}
