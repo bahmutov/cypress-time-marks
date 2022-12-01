@@ -7,6 +7,7 @@
     "src"
   ],
   "scripts": {
+    "stop-only": "stop-only --folder cypress/e2e",
     "test": "cypress run",
     "badges": "npx -p dependency-version-badge update-badge cypress",
     "semantic-release": "semantic-release"
@@ -19,7 +20,8 @@
   "devDependencies": {
     "cypress": "^11.2.0",
     "prettier": "^2.8.0",
-    "semantic-release": "^19.0.5"
+    "semantic-release": "^19.0.5",
+    "stop-only": "^3.1.2"
   },
   "dependencies": {
     "format-duration": "^2.0.0"
