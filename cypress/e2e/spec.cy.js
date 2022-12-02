@@ -51,7 +51,7 @@ describe.skip('fails the test', () => {
     cy.timeMark('start').wait(100).timeSince('start', 50, true)
   })
 
-  it.only('fails the test if the elapsed time is above the limit (with label)', () => {
+  it('fails the test if the elapsed time is above the limit (with label)', () => {
     cy.timeMark('start').wait(100).timeSince('start', 'waiting', 50, true)
   })
 })
