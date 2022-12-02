@@ -23,7 +23,7 @@ Cypress.Commands.add(
 )
 
 function formatDurationMs(ms) {
-  if (ms < 1000) {
+  if (ms < 2000) {
     return ms + 'ms'
   } else {
     return format(ms, { leading: true })
