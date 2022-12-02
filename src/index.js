@@ -34,7 +34,7 @@ function formatDurationMs(ms) {
 Cypress.Commands.add(
   'timeSince',
   { prevSubject: 'optional' },
-  (subject, name, label, timeLimit) => {
+  (subject, name, label, timeLimit, throwError) => {
     if (typeof name !== 'string') {
       throw new Error('Expected a time mark name')
     }
@@ -42,10 +42,21 @@ Cypress.Commands.add(
       throw new Error('Expected a string time mark name')
     }
 
+    if (typeof timeLimit === 'boolean') {
+      throwError = timeLimit
+      timeLimit = undefined
+    }
+
     if (typeof label === 'number') {
       timeLimit = label
       label = undefined
     }
+    console.log({
+      name,
+      label,
+      timeLimit,
+      throwError,
+    })
 
     if (label) {
       if (typeof label !== 'string') {
@@ -74,6 +85,12 @@ Cypress.Commands.add(
         cy.log(
           `🆘 ${formatted} ${label} since **${name}** (above the time limit ${timeLimit}ms)`,
         )
+        if (throwError) {
+          cy.log('**cypress-time-marks throwing an error**').then(() => {
+            const msg = `🆘 ${formatted} ${label} since ${name} (above the time limit ${timeLimit}ms)`
+            throw new Error(msg)
+          })
+        }
       } else {
         cy.log(`🌀 ${formatted} ${label} since **${name}**`)
       }
@@ -82,6 +99,12 @@ Cypress.Commands.add(
         cy.log(
           `🆘 ${formatted} since **${name}** (above the time limit ${timeLimit}ms)`,
         )
+        if (throwError) {
+          cy.log('**cypress-time-marks throwing an error**').then(() => {
+            const msg = `🆘 ${formatted} since ${name} (above the time limit ${timeLimit}ms)`
+            throw new Error(msg)
+          })
+        }
       } else {
         cy.log(`🌀 ${formatted} since **${name}**`)
       }

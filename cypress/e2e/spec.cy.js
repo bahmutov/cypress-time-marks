@@ -44,3 +44,14 @@ it('warns about time limit', () => {
     .timeSince('start', 'over time limit', 200)
     .timeSince('start', 200)
 })
+
+// confirm the failing test when the time limit has been exceeded
+describe.skip('fails the test', () => {
+  it('fails the test if the elapsed time is above the limit', () => {
+    cy.timeMark('start').wait(100).timeSince('start', 50, true)
+  })
+
+  it.only('fails the test if the elapsed time is above the limit (with label)', () => {
+    cy.timeMark('start').wait(100).timeSince('start', 'waiting', 50, true)
+  })
+})

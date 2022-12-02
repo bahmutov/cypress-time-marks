@@ -32,6 +32,10 @@ This should give you two new custom commands `cy.timeMark(name)` and `cy.timeSin
 
 ## Options
 
+```ts
+cy.timeSince(markName: string, label?: string, timeLimit?: number, throwError?: boolean)
+```
+
 ### labels
 
 You can log a label when using `cy.timeSince(name, label)`
@@ -60,6 +64,21 @@ cy.timeMark('start')
 ```
 
 ![Time limit warnings](./images/time-limit.png)
+
+### fail the test
+
+You can fail the test if the elapsed time is above the given limit.
+
+```js
+cy.timeMark('start').wait(100).timeSince(
+  'start', // mark name
+  'waiting', // message
+  50, // time limit (ms)
+  true, // throw an error if above the time limit
+)
+```
+
+![Failing test because of the time limit](./images/throw.png)
 
 ## See also
 
