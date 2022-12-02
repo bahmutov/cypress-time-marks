@@ -28,7 +28,12 @@ Import this plugin from the spec file or from the support file
 import 'cypress-time-marks'
 ```
 
-This should give you two new custom commands `cy.timeMark(name)` and `cy.timeSince(name)`.
+This should give you two new custom commands `cy.timeMark(name)` and `cy.timeSince(name)`. If you want TypeScript definitions, this module [includes them](./src/index.d.ts):
+
+```js
+// my spec JS file
+/// <reference types="cypress-time-marks" />
+```
 
 ## Options
 
