@@ -1,4 +1,4 @@
-/// <reference types="cypress" />
+/// <reference path="./index.d.ts" />
 
 const format = require('format-duration')
 
