@@ -11,6 +11,7 @@ cy.timeMark('start').wait(1500).timeSince('start').wait(500).timeSince('start')
 See [spec.cy.js](./cypress/e2e/spec.cy.js)
 
 - 📺 Watch the video [Measure The Elapsed Time In Your Cypress Tests](https://youtu.be/3ASVKBgYAYc)
+- 🎓 Covered in my course [Cypress Network Testing Exercises](https://cypress.tips/courses/network-testing)
 
 ## Install
 
