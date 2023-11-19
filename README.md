@@ -12,6 +12,8 @@ See [spec.cy.js](./cypress/e2e/spec.cy.js)
 
 - 📺 Watch the video [Measure The Elapsed Time In Your Cypress Tests](https://youtu.be/3ASVKBgYAYc)
 - 🎓 Covered in my course [Cypress Network Testing Exercises](https://cypress.tips/courses/network-testing)
+  - [Bonus 52: Measure the time it takes to show the loaded data on the page](https://cypress.tips/courses/network-testing/lessons/bonus52)
+  - [Bonus 85: Measure cy.requests and parts of tests](https://cypress.tips/courses/network-testing/lessons/bonus85)
 
 ## Install
 
