@@ -14,6 +14,8 @@ See [spec.cy.js](./cypress/e2e/spec.cy.js)
 - 🎓 Covered in my course [Cypress Network Testing Exercises](https://cypress.tips/courses/network-testing)
   - [Bonus 52: Measure the time it takes to show the loaded data on the page](https://cypress.tips/courses/network-testing/lessons/bonus52)
   - [Bonus 85: Measure cy.requests and parts of tests](https://cypress.tips/courses/network-testing/lessons/bonus85)
+- 🎓 Covered in my course [Cypress Plugins](https://cypress.tips/courses/cypress-plugins)
+  - [Lesson p1: Time how long the app takes to add an item](https://cypress.tips/courses/cypress-plugins/lessons/p1)
 
 ## Install
 
