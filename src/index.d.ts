@@ -41,5 +41,45 @@ declare namespace Cypress {
       timeLimit?: number,
       throwError?: boolean,
     ): Chainable<any>
+
+    /**
+     * Measures the time elapsed between two time marks.
+     * The marks should have already happened.
+     * Yields the current subject to the next command or assertion.
+     * @see https://github.com/bahmutov/cypress-time-marks
+     * @param mark1 The first time mark
+     * @param mark2 The second time mark
+     * @param label Extra text to show in the Command Log
+     * @param timeLimit The time limit to warn in milliseconds
+     * @param throwError Throws an error if the elapsed time is above the time limit
+     * @example
+     *  cy.timeBetween('start', 'end', 'loading time', 2000, true)
+     */
+    timeBetween(
+      mark1: string,
+      mark2: string,
+      label?: string,
+      timeLimit?: number,
+      throwError?: boolean,
+    ): Chainable<any>
+
+    /**
+     * Measures the time elapsed between two time marks.
+     * The marks should have already happened.
+     * Yields the current subject to the next command or assertion.
+     * @see https://github.com/bahmutov/cypress-time-marks
+     * @param mark1 The first time mark
+     * @param mark2 The second time mark
+     * @param timeLimit The time limit to warn in milliseconds
+     * @param throwError Throws an error if the elapsed time is above the time limit
+     * @example
+     *  cy.timeBetween('start', 'end', 2000, true)
+     */
+    timeBetween(
+      mark1: string,
+      mark2: string,
+      timeLimit?: number,
+      throwError?: boolean,
+    ): Chainable<any>
   }
 }
