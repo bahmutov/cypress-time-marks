@@ -17,6 +17,7 @@ See [spec.cy.js](./cypress/e2e/spec.cy.js)
 - 🎓 Covered in my course [Cypress Plugins](https://cypress.tips/courses/cypress-plugins)
   - [Lesson p1: Time how long the app takes to add an item](https://cypress.tips/courses/cypress-plugins/lessons/p1)
   - [Lesson p2: Test a Toast component timing](https://cypress.tips/courses/cypress-plugins/lessons/p2)
+  - [Lesson p3: Confirm timings after the functional test](https://cypress.tips/courses/cypress-plugins/lessons/p3)
 
 ## Install
 
