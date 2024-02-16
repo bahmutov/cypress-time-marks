@@ -23,7 +23,7 @@ Cypress.Commands.add(
 )
 
 function formatDurationMs(ms) {
-  if (ms < 2000) {
+  if (ms < 5000) {
     return ms + 'ms'
   } else {
     return format(ms, { leading: true })
@@ -51,12 +51,14 @@ Cypress.Commands.add(
       timeLimit = label
       label = undefined
     }
-    console.log({
-      name,
-      label,
-      timeLimit,
-      throwError,
-    })
+
+    // for debugging only
+    // console.log({
+    //   name,
+    //   label,
+    //   timeLimit,
+    //   throwError,
+    // })
 
     if (label) {
       if (typeof label !== 'string') {
