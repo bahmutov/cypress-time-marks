@@ -45,6 +45,36 @@ it('warns about time limit', () => {
     .timeSince('start', 200)
 })
 
+it('duration under 5 seconds', () => {
+  // should show time in milliseconds
+  cy.spy(cy, 'log').as('log')
+  cy.timeMark('start').wait(4000).timeSince('start')
+  cy.get('@log')
+    .should('be.calledTwice')
+    .invoke('getCalls')
+    .should('have.length', 2)
+    .invoke('map', (c) => c.args[0])
+    .invoke({ timeout: 0 }, 'find', (msg) =>
+      msg.match(/\s\d+ms since \*\*start\*\*/),
+    )
+    .should('be.an', 'string')
+})
+
+it('duration above 5 seconds', () => {
+  // should show time in seconds
+  cy.spy(cy, 'log').as('log')
+  cy.timeMark('start').wait(5000).timeSince('start')
+  cy.get('@log')
+    .should('be.calledTwice')
+    .invoke('getCalls')
+    .should('have.length', 2)
+    .invoke('map', (c) => c.args[0])
+    .invoke({ timeout: 0 }, 'find', (msg) =>
+      msg.match(/\s00:05 since \*\*start\*\*/),
+    )
+    .should('be.an', 'string')
+})
+
 // confirm the failing test when the time limit has been exceeded
 describe.skip('fails the test', () => {
   it('fails the test if the elapsed time is above the limit', () => {
