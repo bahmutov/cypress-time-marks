@@ -53,8 +53,8 @@ it('duration under 5 seconds', () => {
     .should('be.calledTwice')
     .invoke('getCalls')
     .should('have.length', 2)
-    .invoke('map', (c) => c.args[0])
-    .invoke({ timeout: 0 }, 'find', (msg) =>
+    .invoke('map', (c: any) => c.args[0])
+    .invoke({ timeout: 0 }, 'find', (msg: string) =>
       msg.match(/\s\d+ms since \*\*start\*\*/),
     )
     .should('be.an', 'string')
@@ -68,8 +68,8 @@ it('duration above 5 seconds', () => {
     .should('be.calledTwice')
     .invoke('getCalls')
     .should('have.length', 2)
-    .invoke('map', (c) => c.args[0])
-    .invoke({ timeout: 0 }, 'find', (msg) =>
+    .invoke('map', (c: any) => c.args[0])
+    .invoke({ timeout: 0 }, 'find', (msg: string) =>
       msg.match(/\s00:05 since \*\*start\*\*/),
     )
     .should('be.an', 'string')
