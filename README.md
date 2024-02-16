@@ -93,6 +93,25 @@ cy.timeMark('start').wait(100).timeSince(
 
 ![Failing test because of the time limit](./images/throw.png)
 
+## timeBetween
+
+Sometimes you want to measure time, but assert the durations after the fact.
+
+```js
+// run commands and capture the marks
+cy.timeMark('start').wait(400).timeMark('finish')
+// confirm the durations between two marks
+cy.timeBetween('start', 'finish')
+```
+
+You can add a label, set maximum duration, and even throw an error if the duration is above the given limit.
+
+```js
+// label this duration "loading time" in the command log
+// and if it exceeds 1 second, throw an error failing the test
+cy.timeBetween('start', 'finish', 'loading time', 1000, true)
+```
+
 ## See also
 
 - [cypress-timestamps](https://github.com/bahmutov/cypress-timestamps) plugin
