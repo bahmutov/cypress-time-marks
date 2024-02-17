@@ -1,4 +1,4 @@
-# cypress-time-marks ![cypress version](https://img.shields.io/badge/cypress-13.5.1-brightgreen)
+# cypress-time-marks ![cypress version](https://img.shields.io/badge/cypress-13.6.4-brightgreen)
 
 > Custom Cypress commands to measure elapsed time
 
