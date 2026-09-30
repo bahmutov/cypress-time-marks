@@ -15,7 +15,7 @@ Cypress.Commands.add(
     const timestamp = new Date()
     const str = timestamp.toISOString()
     cy.log(`🌀 **${name}** at ${str}`)
-    Cypress.env(name, timestamp)
+    Cypress.expose(name, timestamp)
 
     // pass the previous subject, if any
     cy.wrap(subject, { log: false })
@@ -74,7 +74,7 @@ Cypress.Commands.add(
       }
     }
 
-    const startedAt = Cypress.env(name)
+    const startedAt = Cypress.expose(name)
     if (!startedAt) {
       throw new Error(`Cannot find time mark ${name}`)
     }
@@ -166,11 +166,11 @@ Cypress.Commands.add(
       }
     }
 
-    const startedAt = Cypress.env(mark1)
+    const startedAt = Cypress.expose(mark1)
     if (!startedAt) {
       throw new Error(`Cannot find the starting time mark ${mark1}`)
     }
-    const timestamp = Cypress.env(mark2)
+    const timestamp = Cypress.expose(mark2)
     if (!timestamp) {
       throw new Error(`Cannot find the finishing time mark ${mark2}`)
     }

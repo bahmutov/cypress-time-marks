@@ -117,6 +117,11 @@ cy.timeBetween('start', 'finish', 'loading time', 1000, true)
 
 - [cypress-timestamps](https://github.com/bahmutov/cypress-timestamps) plugin
 
+## Versions
+
+- v2 Cypress v16+
+- v1 Cypress < v16
+
 ## Small print
 
 Author: Gleb Bahmutov &lt;gleb.bahmutov@gmail.com&gt; &copy; 2022
