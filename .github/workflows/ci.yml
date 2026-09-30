@@ -7,6 +7,11 @@ jobs:
       - name: Checkout 🛎
         uses: actions/checkout@v7
 
+      - name: Set node version
+        uses: actions/setup-node@v3
+        with:
+          node-version: '24'
+
       - name: Run Cypress tests 🧪
         # https://github.com/cypress-io/github-action
         uses: cypress-io/github-action@v7
